@@ -1,3 +1,5 @@
+**LINK:** [Interactive Dashboard](https://l3erkt.github.io/INST462----Interactive-Data-Driven/)
+
 
 # Interactive Data-Driven: [**Spotify Wrap**]
 This INST462 project explores how BPM, energy, and danceability relate to Spotify 2025 song popularity. The dataset combines audio features with streaming metrics, suggesting many hits cluster in moderate BPM and high energy ranges.

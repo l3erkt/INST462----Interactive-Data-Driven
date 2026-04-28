@@ -1,215 +1,370 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>What Makes a Hit Song?</title>
-<link rel="stylesheet" href="style.css">
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>What Makes a Hit Song?</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <nav>
+      <div class="nav-logo">Hit Song?</div>
+      <div class="nav-links">
+        <a href="#sec-stage">Stage</a>
+        <a href="#sec-bpm">BPM</a>
+        <a href="#sec-scatter">Features</a>
+        <a href="#sec-valence">Emotion</a>
+      </div>
+    </nav>
 
-<nav>
-  <div class="nav-logo">Hit Song?</div>
-  <div class="nav-links">
-    <a href="#sec-stage">Stage</a>
-    <a href="#sec-bpm">BPM</a>
-    <a href="#sec-scatter">Features</a>
-    <a href="#sec-valence">Emotion</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<section id="hero">
-  <div class="hero-tag">Spotify All-Time Top 100 · Data Exploration</div>
-  <h1>What Makes<br>A Hit Song?</h1>
-  <p class="hero-sub">
-    100 of the most-streamed songs ever. Does <span>BPM</span>, <span>danceability</span>,
-    or <span>emotional energy</span> actually predict streaming success —
-    or is it something else entirely?
-  </p>
-  <div class="hero-stats">
-    <div class="hstat"><div class="hstat-n">100</div><div class="hstat-l">Songs</div></div>
-    <div class="hstat"><div class="hstat-n">39</div><div class="hstat-l">Genres</div></div>
-    <div class="hstat"><div class="hstat-n">5.26B</div><div class="hstat-l">Top Streams</div></div>
-    <div class="hstat"><div class="hstat-n">1985</div><div class="hstat-l">Oldest Song</div></div>
-  </div>
-  <div class="scroll-cue">Explore below</div>
-</section>
-
-<div class="divider"></div>
-
-<!-- SECTION 1 — STAGE / GENRE -->
-<div id="sec-stage" class="sec-wrap">
-<div class="sec">
-  <div class="sec-label">Section 01</div>
-  <div class="sec-title">The Stage</div>
-  <p class="sec-note">Select a genre to see how many songs made the top 100 and their combined stream count. The crowd reflects each song — bigger dots = more streams. <em>Which genre packs the most people?</em></p>
-  <div class="stage-grid">
-    <div class="genre-panel">
-      <h3>Select Genre</h3>
-      <button class="gbtn on" data-g="ALL">All Genres</button>
-      <button class="gbtn" data-g="Pop">Pop</button>
-      <button class="gbtn" data-g="Indie Pop">Indie Pop</button>
-      <button class="gbtn" data-g="Hip-Hop">Hip-Hop</button>
-      <button class="gbtn" data-g="Alt Rock">Alt Rock</button>
-      <button class="gbtn" data-g="Synth-Pop">Synth-Pop</button>
-      <button class="gbtn" data-g="EDM/Pop">EDM/Pop</button>
-      <button class="gbtn" data-g="Pop Rock">Pop Rock</button>
-      <button class="gbtn" data-g="R&B/Pop">R&amp;B/Pop</button>
-      <button class="gbtn" data-g="Funk/Pop">Funk/Pop</button>
-      <button class="gbtn" data-g="Pop Punk">Pop Punk</button>
-    </div>
-    <div class="stage-vis">
-      <div class="stage-top">
-        <div>
-          <div class="genre-big" id="genre-label">ALL GENRES</div>
-          <div class="song-count" id="song-count">100 songs</div>
+    <!-- HERO -->
+    <section id="hero">
+      <div class="hero-tag">Spotify All-Time Top 100 · Data Exploration</div>
+      <h1>What Makes<br />A Hit Song?</h1>
+      <p class="hero-sub">
+        100 of the most-streamed songs ever. Does <span>BPM</span>,
+        <span>danceability</span>, or <span>emotional energy</span> actually
+        predict streaming success — or is it something else entirely?
+      </p>
+      <div class="hero-stats">
+        <div class="hstat">
+          <div class="hstat-n">100</div>
+          <div class="hstat-l">Songs</div>
         </div>
-        <div class="streams-box">
-          <div class="streams-n" id="streams-total">243.5B</div>
-          <div class="streams-l">Total Streams</div>
+        <div class="hstat">
+          <div class="hstat-n">39</div>
+          <div class="hstat-l">Genres</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-n">5.26B</div>
+          <div class="hstat-l">Top Streams</div>
+        </div>
+        <div class="hstat">
+          <div class="hstat-n">1985</div>
+          <div class="hstat-l">Oldest Song</div>
         </div>
       </div>
-      <svg id="stage-svg" viewBox="0 0 680 230"></svg>
-    </div>
-  </div>
-</div>
-</div>
+      <div class="scroll-cue">Explore below</div>
+    </section>
 
-<div class="divider"></div>
+    <div class="divider"></div>
 
-<!-- SECTION 2 — BPM DIAL -->
-<div id="sec-bpm" class="sec-wrap">
-<div class="sec">
-  <div class="sec-label">Section 02</div>
-  <div class="sec-title">The BPM Dial</div>
-  <p class="sec-note">Drag the slider to set a BPM. See which genres live at that tempo and how many streams they've accumulated. <em>Does faster always mean more popular?</em></p>
-  <div class="bpm-grid">
-    <div class="dial-wrap">
-      <div class="dial-cont">
-        <svg id="dial-svg" viewBox="0 0 280 180" overflow="visible">
-          <defs>
-            <linearGradient id="dial-grad" x1="0%" y1="0%" x2="100%" y2="0%">
-              <stop offset="0%" stop-color="#00e5ff"/>
-              <stop offset="100%" stop-color="#e040fb"/>
-            </linearGradient>
-          </defs>
-          <!-- Track -->
-          <path id="dial-track" d="" fill="none" stroke="#1f1f35" stroke-width="8" stroke-linecap="round"/>
-          <!-- Fill -->
-          <path id="dial-fill" d="" fill="none" stroke="url(#dial-grad)" stroke-width="8" stroke-linecap="round"/>
-          <!-- Knob -->
-          <circle id="dial-knob" cx="140" cy="140" r="10" fill="var(--mg)" filter="url(#glow)"/>
-          <defs><filter id="glow"><feGaussianBlur stdDeviation="4" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
-        </svg>
-        <div class="dial-mid">
-          <span class="dial-n" id="dial-num">100</span>
-          <span class="dial-l">BPM</span>
+    <!-- SECTION 1 — STAGE / GENRE -->
+    <div id="sec-stage" class="sec-wrap">
+      <div class="sec">
+        <div class="sec-label">Section 01</div>
+        <div class="sec-title">The Stage</div>
+        <p class="sec-note">
+          Select a genre to see how many songs made the top 100 and their
+          combined stream count. The crowd reflects each song — bigger dots =
+          more streams. <em>Which genre packs the most people?</em>
+        </p>
+        <div class="stage-grid">
+          <div class="genre-panel">
+            <h3>Select Genre</h3>
+            <button class="gbtn on" data-g="ALL">All Genres</button>
+            <button class="gbtn" data-g="Pop">Pop</button>
+            <button class="gbtn" data-g="Indie Pop">Indie Pop</button>
+            <button class="gbtn" data-g="Hip-Hop">Hip-Hop</button>
+            <button class="gbtn" data-g="Alt Rock">Alt Rock</button>
+            <button class="gbtn" data-g="Synth-Pop">Synth-Pop</button>
+            <button class="gbtn" data-g="EDM/Pop">EDM/Pop</button>
+            <button class="gbtn" data-g="Pop Rock">Pop Rock</button>
+            <button class="gbtn" data-g="R&B/Pop">R&amp;B/Pop</button>
+            <button class="gbtn" data-g="Funk/Pop">Funk/Pop</button>
+            <button class="gbtn" data-g="Pop Punk">Pop Punk</button>
+          </div>
+          <div class="stage-vis">
+            <div class="stage-top">
+              <div>
+                <div class="genre-big" id="genre-label">ALL GENRES</div>
+                <div class="song-count" id="song-count">100 songs</div>
+              </div>
+              <div class="streams-box">
+                <div class="streams-n" id="streams-total">243.5B</div>
+                <div class="streams-l">Total Streams</div>
+              </div>
+            </div>
+            <svg id="stage-svg" viewBox="0 0 680 230"></svg>
+          </div>
         </div>
       </div>
-      <div class="slider-wrap">
-        <label><span>0</span><span>DRAG TO SET BPM</span><span>180</span></label>
-        <input type="range" id="bpm-range" min="0" max="180" value="100" style="--pct:55.5%">
+    </div>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 2 — BPM DIAL -->
+    <div id="sec-bpm" class="sec-wrap">
+      <div class="sec">
+        <div class="sec-label">Section 02</div>
+        <div class="sec-title">The BPM Dial</div>
+        <p class="sec-note">
+          Drag the slider to set a BPM. See which genres live at that tempo and
+          how many streams they've accumulated.
+          <em>Does faster always mean more popular?</em>
+        </p>
+        <div class="bpm-grid">
+          <div class="dial-wrap">
+            <div class="dial-cont">
+              <svg id="dial-svg" viewBox="0 0 280 180" overflow="visible">
+                <defs>
+                  <linearGradient
+                    id="dial-grad"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
+                    <stop offset="0%" stop-color="#00e5ff" />
+                    <stop offset="100%" stop-color="#e040fb" />
+                  </linearGradient>
+                </defs>
+                <!-- Track -->
+                <path
+                  id="dial-track"
+                  d=""
+                  fill="none"
+                  stroke="#1f1f35"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                />
+                <!-- Fill -->
+                <path
+                  id="dial-fill"
+                  d=""
+                  fill="none"
+                  stroke="url(#dial-grad)"
+                  stroke-width="8"
+                  stroke-linecap="round"
+                />
+                <!-- Knob -->
+                <circle
+                  id="dial-knob"
+                  cx="140"
+                  cy="140"
+                  r="10"
+                  fill="var(--mg)"
+                  filter="url(#glow)"
+                />
+                <defs>
+                  <filter id="glow">
+                    <feGaussianBlur stdDeviation="4" result="blur" />
+                    <feMerge>
+                      <feMergeNode in="blur" />
+                      <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                  </filter>
+                </defs>
+              </svg>
+              <div class="dial-mid">
+                <span class="dial-n" id="dial-num">100</span>
+                <span class="dial-l">BPM</span>
+              </div>
+            </div>
+            <div class="slider-wrap">
+              <label
+                ><span>0</span><span>DRAG TO SET BPM</span
+                ><span>180</span></label
+              >
+              <input
+                type="range"
+                id="bpm-range"
+                min="0"
+                max="180"
+                value="100"
+                style="--pct: 55.5%"
+              />
+            </div>
+          </div>
+          <div class="bpm-cards" id="bpm-cards">
+            <!-- filled by JS -->
+          </div>
+        </div>
       </div>
     </div>
-    <div class="bpm-cards" id="bpm-cards">
-      <!-- filled by JS -->
-    </div>
-  </div>
-</div>
-</div>
 
-<div class="divider"></div>
+    <div class="divider"></div>
 
-<!-- SECTION 3 — SCATTER -->
-<div id="sec-scatter" class="sec-wrap">
-<div class="sec">
-  <div class="sec-label">Section 03</div>
-  <div class="sec-title">Musical Features vs Streams</div>
-  <p class="sec-note">Each dot is one of the top 100 songs. Dot size = total streams. Change the X-axis to explore different audio features. Filter by genre group. <em>Can you spot a formula?</em></p>
-  <div class="filter-row">
-    <span class="filter-label">Genre:</span>
-    <button class="fbtn on" data-f="ALL">All</button>
-    <button class="fbtn" data-f="Pop">Pop</button>
-    <button class="fbtn" data-f="Rock">Rock</button>
-    <button class="fbtn" data-f="Hip-Hop">Hip-Hop</button>
-    <button class="fbtn" data-f="Electronic">Electronic</button>
-    <button class="fbtn" data-f="Indie">Indie</button>
-    <span class="filter-label" style="margin-left:16px">X-Axis:</span>
-    <select class="axis-select" id="x-axis">
-      <option value="danceability">Danceability</option>
-      <option value="energy">Energy</option>
-      <option value="valence">Valence (Mood)</option>
-      <option value="acousticness">Acousticness</option>
-      <option value="bpm">BPM</option>
-    </select>
-  </div>
-  <div class="scatter-box panel">
-    <canvas id="scatter-cv" height="360"></canvas>
-    <div class="axis-labels">
-      <span id="x-label-low">Low Danceability</span>
-      <span id="x-label-title" style="color:var(--ye)">DANCEABILITY →</span>
-      <span id="x-label-high">High Danceability</span>
-    </div>
-  </div>
-</div>
-</div>
-
-<div class="divider"></div>
-
-<!-- SECTION 4 — VALENCE / EMOTION -->
-<div id="sec-valence" class="sec-wrap">
-<div class="sec">
-  <div class="sec-label">Section 04</div>
-  <div class="sec-title">The Emotion Factor</div>
-  <p class="sec-note">Valence measures a song's emotional positivity (0 = dark/sad, 1 = bright/happy). Click a genre to see its average mood and stream impact. <em>Do happier songs stream more?</em></p>
-  <div class="val-grid">
-    <div>
-      <div class="val-controls" id="val-btns">
-        <!-- filled by JS -->
-      </div>
-      <div class="val-info" id="val-info">
-        <div class="val-info-title" id="val-info-genre">SELECT A GENRE</div>
-        <div class="val-info-sub" id="val-info-text">Click any genre to see its average valence, energy, and what that means emotionally.</div>
+    <!-- SECTION 3 — SCATTER -->
+    <div id="sec-scatter" class="sec-wrap">
+      <div class="sec">
+        <div class="sec-label">Section 03</div>
+        <div class="sec-title">Musical Features vs Streams</div>
+        <p class="sec-note">
+          Each dot is one of the top 100 songs. Dot size = total streams. Change
+          the X-axis to explore different audio features. Filter by genre group.
+          <em>Can you spot a formula?</em>
+        </p>
+        <div class="filter-row">
+          <span class="filter-label">Genre:</span>
+          <button class="fbtn on" data-f="ALL">All</button>
+          <button class="fbtn" data-f="Pop">Pop</button>
+          <button class="fbtn" data-f="Rock">Rock</button>
+          <button class="fbtn" data-f="Hip-Hop">Hip-Hop</button>
+          <button class="fbtn" data-f="Electronic">Electronic</button>
+          <button class="fbtn" data-f="Indie">Indie</button>
+          <span class="filter-label" style="margin-left: 16px">X-Axis:</span>
+          <select class="axis-select" id="x-axis">
+            <option value="danceability">Danceability</option>
+            <option value="energy">Energy</option>
+            <option value="valence">Valence (Mood)</option>
+            <option value="acousticness">Acousticness</option>
+            <option value="bpm">BPM</option>
+          </select>
+        </div>
+        <div class="scatter-box panel">
+          <canvas id="scatter-cv" height="360"></canvas>
+          <div class="axis-labels">
+            <span id="x-label-low">Low Danceability</span>
+            <span id="x-label-title" style="color: var(--ye)"
+              >DANCEABILITY →</span
+            >
+            <span id="x-label-high">High Danceability</span>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="face-wrap">
-      <svg id="face-svg" viewBox="0 0 200 200">
-        <!-- Head -->
-        <circle cx="100" cy="100" r="85" fill="var(--s2)" stroke="var(--br)" stroke-width="2"/>
-        <!-- Eyes -->
-        <circle cx="72" cy="82" r="9" fill="var(--tx)" opacity=".9"/>
-        <circle cx="128" cy="82" r="9" fill="var(--tx)" opacity=".9"/>
-        <circle id="eye-l" cx="74" cy="84" r="5" fill="var(--mg)"/>
-        <circle id="eye-r" cx="130" cy="84" r="5" fill="var(--mg)"/>
-        <!-- Mouth path: changes with valence -->
-        <path id="face-mouth" d="M 68 128 Q 100 148 132 128" fill="none" stroke="var(--tx)" stroke-width="4" stroke-linecap="round"/>
-        <!-- Brows -->
-        <path id="brow-l" d="M 60 68 Q 72 62 84 68" fill="none" stroke="var(--tx)" stroke-width="3" stroke-linecap="round"/>
-        <path id="brow-r" d="M 116 68 Q 128 62 140 68" fill="none" stroke="var(--tx)" stroke-width="3" stroke-linecap="round"/>
-        <!-- Cheek blush (shows for high valence) -->
-        <ellipse id="blush-l" cx="62" cy="112" rx="12" ry="7" fill="var(--mg)" opacity="0"/>
-        <ellipse id="blush-r" cx="138" cy="112" rx="12" ry="7" fill="var(--mg)" opacity="0"/>
-        <!-- Label -->
-        <text id="face-label" x="100" y="175" text-anchor="middle" font-family="Bebas Neue,sans-serif" font-size="16" fill="var(--mu)">VALENCE</text>
-        <text id="face-val-num" x="100" y="193" text-anchor="middle" font-family="Bebas Neue,sans-serif" font-size="13" fill="var(--cy)">—</text>
-      </svg>
+
+    <div class="divider"></div>
+
+    <!-- SECTION 4 — VALENCE / EMOTION -->
+    <div id="sec-valence" class="sec-wrap">
+      <div class="sec">
+        <div class="sec-label">Section 04</div>
+        <div class="sec-title">The Emotion Factor</div>
+        <p class="sec-note">
+          Valence measures a song's emotional positivity (0 = dark/sad, 1 =
+          bright/happy). Click a genre to see its average mood and stream
+          impact. <em>Do happier songs stream more?</em>
+        </p>
+        <div class="val-grid">
+          <div>
+            <div class="val-controls" id="val-btns">
+              <!-- filled by JS -->
+            </div>
+            <div class="val-info" id="val-info">
+              <div class="val-info-title" id="val-info-genre">
+                SELECT A GENRE
+              </div>
+              <div class="val-info-sub" id="val-info-text">
+                Click any genre to see its average valence, energy, and what
+                that means emotionally.
+              </div>
+            </div>
+          </div>
+          <div class="face-wrap">
+            <svg id="face-svg" viewBox="0 0 200 200">
+              <!-- Head -->
+              <circle
+                cx="100"
+                cy="100"
+                r="85"
+                fill="var(--s2)"
+                stroke="var(--br)"
+                stroke-width="2"
+              />
+              <!-- Eyes -->
+              <circle cx="72" cy="82" r="9" fill="var(--tx)" opacity=".9" />
+              <circle cx="128" cy="82" r="9" fill="var(--tx)" opacity=".9" />
+              <circle id="eye-l" cx="74" cy="84" r="5" fill="var(--mg)" />
+              <circle id="eye-r" cx="130" cy="84" r="5" fill="var(--mg)" />
+              <!-- Mouth path: changes with valence -->
+              <path
+                id="face-mouth"
+                d="M 68 128 Q 100 148 132 128"
+                fill="none"
+                stroke="var(--tx)"
+                stroke-width="4"
+                stroke-linecap="round"
+              />
+              <!-- Brows -->
+              <path
+                id="brow-l"
+                d="M 60 68 Q 72 62 84 68"
+                fill="none"
+                stroke="var(--tx)"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <path
+                id="brow-r"
+                d="M 116 68 Q 128 62 140 68"
+                fill="none"
+                stroke="var(--tx)"
+                stroke-width="3"
+                stroke-linecap="round"
+              />
+              <!-- Cheek blush (shows for high valence) -->
+              <ellipse
+                id="blush-l"
+                cx="62"
+                cy="112"
+                rx="12"
+                ry="7"
+                fill="var(--mg)"
+                opacity="0"
+              />
+              <ellipse
+                id="blush-r"
+                cx="138"
+                cy="112"
+                rx="12"
+                ry="7"
+                fill="var(--mg)"
+                opacity="0"
+              />
+              <!-- Label -->
+              <text
+                id="face-label"
+                x="100"
+                y="175"
+                text-anchor="middle"
+                font-family="Bebas Neue,sans-serif"
+                font-size="16"
+                fill="var(--mu)"
+              >
+                VALENCE
+              </text>
+              <text
+                id="face-val-num"
+                x="100"
+                y="193"
+                text-anchor="middle"
+                font-family="Bebas Neue,sans-serif"
+                font-size="13"
+                fill="var(--cy)"
+              >
+                —
+              </text>
+            </svg>
+          </div>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-</div>
 
-<div class="divider"></div>
+    <div class="divider"></div>
 
-<!-- FOOTER -->
-<div style="text-align:center; padding:40px 24px; color:var(--mu); font-size:10px; letter-spacing:.2em; text-transform:uppercase;">
-  Data: Spotify All-Time Top 100 · Bereket Zeggai · Project 3 Interactive Data Narrative
-</div>
+    <!-- FOOTER -->
+    <div
+      style="
+        text-align: center;
+        padding: 40px 24px;
+        color: var(--mu);
+        font-size: 10px;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+      "
+    >
+      Data: Spotify All-Time Top 100 · Bereket Zeggai · Project 3 Interactive
+      Data Narrative
+    </div>
 
-<div id="tip"></div>
+    <div id="tip"></div>
 
-
-<script type="module" src="main.js"></script>
-</body>
+    <script type="module" src="main.js"></script>
+  </body>
 </html>
