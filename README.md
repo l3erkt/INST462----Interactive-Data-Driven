@@ -15,7 +15,7 @@ An interactive, data-driven web experience exploring the **Spotify All-Time Top 
 
 ## 📊 Project Overview
 
-This project is a **scrollytelling data visualization** that allows users to explore patterns behind some of the most streamed songs ever.
+This project is a **storytelling data visualization** that allows users to explore patterns behind some of the most streamed songs/genres ever.
 
 Users can interact with multiple visual sections to answer key questions:
 
